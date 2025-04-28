@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "Name": "Alice",
+    "Transaction": {
+      "price": 500
+    },
+    "Payment": {
+      "Total": 1200
+    }
+  },
+  {
+    "_id": 2,
+    "Name": "Bob",
+    "Transaction": {
+      "price": 250
+    },
+    "Payment": {
+      "Total": 600
+    }
+  }
+]

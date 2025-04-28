@@ -1,0 +1,3 @@
+Using MongoDB, create a collection called transactions in database usermanaged (drop if it already exists) 
+and bulk load the data from a json file, transactions.json. Upsert the record from the new file called transactions_upsert.json 
+in Mongodb. 
