@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const port = 2500;
+const port = 2501;
 
 app.get('/', (req, res) => {
     const cookies = req.headers.cookie; // Correct way to access cookies
