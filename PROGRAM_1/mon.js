@@ -39,7 +39,7 @@
 //   } finally {
 //     await client.close();
 //   }
-// } 
+// }
 
 // run().catch(console.dir);
 
@@ -50,7 +50,7 @@ async function run() {
   try {
     await client.connect();
     const collection = client.db("usermanaged").collection("transactions");
-    await collection.drop()//.catch(() => console.log("Collection does not exist."));
+    await collection.drop();
     const bulkData = JSON.parse(fs.readFileSync("transactions.json", "utf8"));
     await collection.insertMany(bulkData);
     console.log("Bulk data inserted.");
@@ -62,11 +62,11 @@ async function run() {
         { upsert: true }
       );
     }
-    console.log("Data upserted successfully."); 
+    console.log("Data upserted successfully.");
   } catch (err) {
     console.error(err);
   } finally {
     await client.close();
   }
 }
-run()//catch(console.dir);
+run();
