@@ -14,6 +14,14 @@ This program demonstrates how to use MongoDB with Node.js to create a collection
 - `transactions.json`: JSON data file with initial transaction records.  
 - `transactions_upsert.json`: JSON data file with records to upsert into the collection.  
 
+**How to Run:**  
+1. Ensure MongoDB is running locally.
+2. Place `transactions.json` and `transactions_upsert.json` in the same folder.
+3. Run:  
+   ```bash
+   node prg_1.js
+   ```
+
 ---
 
 ## PROGRAM_2
@@ -23,6 +31,13 @@ This program performs various MongoDB queries on the "usermanaged" database coll
 
 **Main File:**  
 - `prog2.js`: Node.js script that queries MongoDB to find records based on specific conditions and calculates the total transaction amount.
+
+**How to Run:**  
+1. Ensure MongoDB is running locally and collections are populated.
+2. Run:  
+   ```bash
+   node prog2.js
+   ```
 
 ---
 
@@ -34,6 +49,13 @@ A simple Express.js server that listens on port 2501 and responds to GET request
 **Main File:**  
 - `prog3a.js`: Express.js server script.
 
+**How to Run:**  
+1. Run:  
+   ```bash
+   node prog3a.js
+   ```
+2. Open [http://localhost:2500/](http://localhost:2500/) in your browser.
+
 ---
 
 ## PROGRAM_4
@@ -43,6 +65,13 @@ This program connects to a MongoDB server and inserts a new student document int
 
 **Main File:**  
 - `prog4a.js`: Node.js script for inserting a student record into MongoDB.
+
+**How to Run:**  
+1. Ensure MongoDB is running locally.
+2. Run:  
+   ```bash
+   node prog4a.js
+   ```
 
 ---
 
@@ -54,6 +83,11 @@ Demonstrates basic file operations in Node.js including creating, reading, appen
 **Main File:**  
 - `fileop.js`: Node.js script showcasing file system operations.
 
+**How to Run:**  
+```bash
+node fileop.js
+```
+
 ---
 
 ## PROGRAM_6
@@ -64,6 +98,31 @@ A simple HTML form for submitting a fruit name and price. The form uses client-s
 **Main Files:**  
 - `lab.html`: HTML form with embedded JavaScript for form submission.  
 - `script.js`: (Assumed to contain additional JavaScript, not reviewed in detail).
+
+**How to Run:**  
+1. Run the server:  
+   ```bash
+   node script.js
+   ```
+2. Open [http://localhost:3001/](http://localhost:3001/) in your browser.
+
+---
+
+## PROGRAM_7
+
+**Description:**  
+A simple login system using an HTML form and an Express.js backend. The form (`l7.html`) collects email and password, and the server (`prog7.js`) validates credentials against hardcoded values.
+
+**Main Files:**  
+- `l7.html`: HTML login form with basic CSS styling.
+- `prog7.js`: Express.js server handling form submission and credential validation.
+
+**How to Run:**  
+1. Run the server:  
+   ```bash
+   node prog7.js
+   ```
+2. Open [http://localhost:3000/](http://localhost:3000/) in your browser.
 
 ---
 

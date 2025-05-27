@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
@@ -30,11 +30,11 @@ function findCubes(limit) {
   return cubes;
 }
 
-app.get('/find_prime_100', (req, res) => {
+app.get("/find_prime_100", (req, res) => {
   res.send(findPrimes(100));
 });
 
-app.get('/find_cube_100', (req, res) => {
+app.get("/find_cube_100", (req, res) => {
   res.send(findCubes(100));
 });
 
