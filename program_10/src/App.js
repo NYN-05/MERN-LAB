@@ -1,5 +1,5 @@
 import React from 'react';
-import DataFetcher from './prog10';
+import DataFetcher from './components/prog10.js';
 
 function App() {
   return (

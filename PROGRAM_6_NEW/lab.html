@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fruit Form</title>
+</head>
+
+<body>
+    <h1>Fruit Form</h1>
+    <form id="fruitform">
+        <label for="fruit">Fruit:</label>
+        <input type="text" id="fruit" name="fruit" required>
+        <label for="fruitPrice">Price:</label>
+        <input type="number" id="fruitPrice" name="fruitPrice" required>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <div id="fruitList"></div>
+
+    <script>
+        document.getElementById('fruitform').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const fruit = document.getElementById('fruit').value;
+            const price = document.getElementById('fruitPrice').value;
+            fetch('/submit-fruit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fruit, fruitPrice: price })
+            })
+                .then(response => response.json())
+                .then(fruits => {
+                    const fruitListDiv = document.getElementById('fruitList');
+                    fruitListDiv.innerHTML = fruits.length
+                        ? `<ul>${fruits.map(f => `<li>${f.fruit}: $${f.fruitPrice}</li>`).join('')}</ul>`
+                        : 'No fruits added.';
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const DataFetcher = () => {
   const [data, setData] = useState([]);
@@ -9,9 +9,11 @@ const DataFetcher = () => {
     // Fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
         setData(data);
@@ -40,7 +42,7 @@ const DataFetcher = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(user => (
+          {data.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.name}</td>
@@ -53,4 +55,4 @@ const DataFetcher = () => {
   );
 };
 
-export default DataFetcher;
+export default DataFetcher; 

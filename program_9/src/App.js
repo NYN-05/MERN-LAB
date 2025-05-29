@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SearchFilter from './prog9'; // Import the SearchFilter component from prog9.js
+import SearchFilter from './components/p9'; // Fixed import path
 
 function App() {
   return (
