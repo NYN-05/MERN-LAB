@@ -13,5 +13,5 @@ const SearchFilter = () => {
       </ul>
     </div>
   );
-};
+};   
 export default SearchFilter;
