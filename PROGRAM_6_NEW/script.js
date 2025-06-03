@@ -6,16 +6,6 @@ const port = 3001;
 app.use(express.json());
 let fruits = [];
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'lab.html'));
-});
-
-app.post('/submit-fruit', (req, res) => {
-    console.log('Received fruit data:', req.body);
-    fruits.push(req.body);
-    res.json(fruits);
-});
-
-app.listen(port, () => {
-    console.log(`Server on http://localhost:${port}`);
-});
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'lab.html')));
+app.post('/submit-fruit', (req, res) => res.json(fruits = [...fruits, req.body]));
+app.listen(port, () => console.log(`Server on http://localhost:${port}`));

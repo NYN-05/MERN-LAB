@@ -9,6 +9,7 @@ async function run() {
         const partialName = readlineSync.question('Enter the partial name to search for: ');
         const query = { name: { $regex: partialName, $options: 'i' } };
         const students = await collection.find(query).toArray();
+
         if (students.length > 0) {
             console.log(`Students found matching "${partialName}":`);
             students.forEach(student => {
@@ -21,7 +22,6 @@ async function run() {
         console.error("Error:", err);
     } finally {
         await client.close();
-        console.log("MongoDB connection closed.");
     }
 }
 run() 

@@ -9,11 +9,16 @@ async function run() {
     console.log("Record with Name Somu:", recordSomu);
     const payment600 = await transactions.findOne({ "Payment.Total": 600 });
     console.log("Payment of 600:", payment600);
-    const priceRange = await transactions.findOne({"Transaction.price": { $gte: 300, $lte: 500 }});
-    console.log("Price with transaction.price between 300 and 500:",priceRange);
-    const totalTransactionAmount = await transactions.aggregate([
-      { $group: { _id: null, total: { $sum: "$Payment.Total" } } }]
-    ).toArray();
+    const priceRange = await transactions.findOne({
+      "Transaction.price": { $gte: 300, $lte: 500 },
+    });
+    console.log(
+      "Price with transaction.price between 300 and 500:",
+      priceRange
+    );
+    const totalTransactionAmount = await transactions
+      .aggregate([{ $group: { _id: null, total: { $sum: "$Payment.Total" } } }])
+      .toArray();
     console.log("Total transaction amount:", totalTransactionAmount);
   } catch (err) {
     console.error(err);

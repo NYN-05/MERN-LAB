@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Fruit Form</title>
 </head>
 
 <body>
-    <h1>Fruit Form</h1>
     <form id="fruitform">
-        <label for="fruit">Fruit:</label>
-        <input type="text" id="fruit" name="fruit" required>
-        <label for="fruitPrice">Price:</label>
-        <input type="number" id="fruitPrice" name="fruitPrice" required>
+        <input id="fruit" placeholder="Fruit" required>
+        <input id="fruitPrice" type="number" placeholder="Price" required>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
     </form>
     <div id="fruitList"></div>
-
     <script>
-        document.getElementById('fruitform').addEventListener('submit', (event) => {
-            event.preventDefault();
-            const fruit = document.getElementById('fruit').value;
-            const price = document.getElementById('fruitPrice').value;
+        fruitform.onsubmit = e => {
+            e.preventDefault();
             fetch('/submit-fruit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fruit, fruitPrice: price })
+                body: JSON.stringify({ fruit: fruit.value, fruitPrice: fruitPrice.value })
             })
-                .then(response => response.json())
+                .then(r => r.json())
                 .then(fruits => {
-                    const fruitListDiv = document.getElementById('fruitList');
-                    fruitListDiv.innerHTML = fruits.length
-                        ? `<ul>${fruits.map(f => `<li>${f.fruit}: $${f.fruitPrice}</li>`).join('')}</ul>`
+                    fruitList.innerHTML = fruits.length
+                        ? fruits.map(f => `${f.fruit}: $${f.fruitPrice}`).join('<br>')
                         : 'No fruits added.';
                 });
-        });
+        };
     </script>
 </body>
 
